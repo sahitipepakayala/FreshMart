@@ -12,7 +12,7 @@ function Manage() {
   }, []);
 
   const fetchProducts = () => {
-    axios.get(`https://freshmart-frontend-mxo4.onrender.com/product/allProducts`)
+    axios.get(`https://freshmart-backend-l2vk.onrender.com/product/allProducts`)
       .then(res => setProducts(res.data))
       .catch(error => console.error(error));
   };
@@ -26,7 +26,7 @@ function Manage() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        axios.delete(`https://freshmart-frontend-mxo4.onrender.com/product/${productId}/delete`)
+        axios.delete(`https://freshmart-backend-l2vk.onrender.com/product/${productId}/delete`)
           .then(() => {
             swal("Product deleted!", { icon: "success" });
             fetchProducts(); // Refresh the list

@@ -15,7 +15,7 @@ function Signup() {
   async function handleLogin(e) {
     e.preventDefault(); // prevent form default reload
     try {
-      const res = await axios.post(`https://freshmart-frontend-mxo4.onrender.com/user/signup`, {name,emailId, password,number}, { withCredentials: true });
+      const res = await axios.post(`https://freshmart-backend-l2vk.onrender.com/user/signup`, {name,emailId, password,number}, { withCredentials: true });
       dispatch(addUser(res.data));
     } catch (error) {
      

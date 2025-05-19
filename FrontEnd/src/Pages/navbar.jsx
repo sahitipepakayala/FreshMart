@@ -17,7 +17,7 @@ function Navbar() {
   const handleLogout=async(e)=>{
     e.preventDefault();
     try{
-      await axios.get(`https://freshmart-frontend-mxo4.onrender.com/admin/logout`)
+      await axios.get(`https://freshmart-backend-l2vk.onrender.com/admin/logout`)
       dispatch(removeUser())
       swal("Success", "Logged Out Successfully!", "success");
     navigate("/login");}

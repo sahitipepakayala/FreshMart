@@ -8,12 +8,12 @@ function ManageOrders() {
    fetchOrders();
   }, []);
 
-  const fetchOrders= ()=>{axios.get(`https://freshmart-frontend-mxo4.onrender.com/order/allOrders`)
+  const fetchOrders= ()=>{axios.get(`https://freshmart-backend-l2vk.onrender.com/order/allOrders`)
   .then(res => setOrders(res.data))
   .catch(err => console.log("Error fetching orders:", err));}
   const handleStatus=async(id,status)=>{
     try{
-        await axios.put(`https://freshmart-frontend-mxo4.onrender.com/order/${id}/status`,{status},{withCredentials:true});
+        await axios.put(`https://freshmart-backend-l2vk.onrender.com/order/${id}/status`,{status},{withCredentials:true});
         fetchOrders();
 
     }

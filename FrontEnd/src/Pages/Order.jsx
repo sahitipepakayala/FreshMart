@@ -16,7 +16,7 @@ function Order() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post(`https://freshmart-frontend-mxo4.onrender.com/order/place`, {
+        const response = await axios.post(`https://freshmart-backend-l2vk.onrender.com/order/place`, {
           buyer: user._id,
           buyerName: user.name,
           price: parseFloat(totalPrice), // Fixed type
