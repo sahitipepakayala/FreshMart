@@ -4,7 +4,6 @@ import { addUser } from '../Store/userSlice';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [emailId, setemail] = useState("abc123@gmail.com");
