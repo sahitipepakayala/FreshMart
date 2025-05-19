@@ -8,7 +8,7 @@ function Edit() {
     const [product,setProduct]=useState({});
     const navigate=useNavigate();
     useEffect(()=>{
-        axios.get(`${import.meta.env.VITE_API_URL}/product/${id}`)
+        axios.get(`https://freshmart-frontend-mxo4.onrender.com/product/${id}`)
         .then(res=>{setProduct(res.data);
             setName(res.data.name);
             setPrice(res.data.price);
@@ -20,7 +20,7 @@ function Edit() {
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try{
-            await axios.put(`${import.meta.env.VITE_API_URL}/product/${id}/edit`,{name,price,image},{withCredentials:true})
+            await axios.put(`https://freshmart-frontend-mxo4.onrender.com/product/${id}/edit`,{name,price,image},{withCredentials:true})
             .then(()=>{
                 swal("Success", "Product updated successfully!", "success");
             navigate("/manage")})

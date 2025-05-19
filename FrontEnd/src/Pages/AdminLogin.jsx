@@ -14,7 +14,7 @@ function AdminLogin() {
   async function handleLogin(e) {
     e.preventDefault(); // prevent form default reload
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/admin/login`, { emailId, password }, { withCredentials: true });
+      const res = await axios.post(`https://freshmart-frontend-mxo4.onrender.com/admin/login`, { emailId, password }, { withCredentials: true });
       dispatch(addUser(res.data));
         navigate("/")
     } catch (error) {

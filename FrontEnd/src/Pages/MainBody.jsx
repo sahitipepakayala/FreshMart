@@ -5,7 +5,7 @@ import SingleCard from "./SingleCard";
 function MainBody(){
     const [products,setProducts]=useState([]);
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/product/allProducts`)
+        axios.get(`https://freshmart-frontend-mxo4.onrender.com/product/allProducts`)
           .then(res => setProducts(res.data))
           .catch(error => console.log(error));
       }, []);

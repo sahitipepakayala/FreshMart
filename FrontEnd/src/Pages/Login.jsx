@@ -14,7 +14,7 @@ function Login() {
   async function handleLogin(e) {
     e.preventDefault(); // prevent form default reload
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/user/login`, { emailId, password }, { withCredentials: true });
+      const res = await axios.post(`https://freshmart-frontend-mxo4.onrender.com/user/login`, { emailId, password }, { withCredentials: true });
       dispatch(addUser(res.data));
       console.log("Login success", res.data);
       swal("Success", "Login successful!", "success");

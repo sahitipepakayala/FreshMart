@@ -11,7 +11,7 @@ function MyOrders() {
   }, [id]); // run only when `id` changes
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/order/myOrders/${id}`);
+      const res = await axios.get(`https://freshmart-frontend-mxo4.onrender.com/order/myOrders/${id}`);
       setOrders(res.data);
     } catch (error) {
       console.error("Failed to fetch orders:", error);
@@ -19,7 +19,7 @@ function MyOrders() {
   };
   const handleCancel=async(id,status)=>{
     try{
-      await axios.put(`${import.meta.env.VITE_API_URL}/order/${id}/status`,{status},{withCredentials:true});
+      await axios.put(`https://freshmart-frontend-mxo4.onrender.com/order/${id}/status`,{status},{withCredentials:true});
         fetchOrders();
 
     }

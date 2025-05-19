@@ -11,7 +11,7 @@ function NewProduct() {
     const handleSubmit=async(e)=>{
         e.preventDefault();
         try{
-            await axios.post(`${import.meta.env.VITE_API_URL}/product/newProduct`,{name,price,image},{withCredentials:true})
+            await axios.post(`https://freshmart-frontend-mxo4.onrender.com/product/newProduct`,{name,price,image},{withCredentials:true})
             .then(()=>{
                 swal("Success", "Product updated successfully!", "success");
                 navigate("/manage")})

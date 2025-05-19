@@ -17,7 +17,7 @@ function Navbar() {
   const handleLogout=async(e)=>{
     e.preventDefault();
     try{
-      await axios.get(`${import.meta.env.VITE_API_URL}/admin/logout`)
+      await axios.get(`https://freshmart-frontend-mxo4.onrender.com/admin/logout`)
       dispatch(removeUser())
       swal("Success", "Logged Out Successfully!", "success");
     navigate("/login");}
