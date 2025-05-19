@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Store/userSlice';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [emailId, setemail] = useState("abc123@gmail.com");
@@ -11,12 +12,13 @@ function Signup() {
   const [name,setName]=useState("abcd");
   const [number,setNumber]=useState("9999999999");
   const dispatch = useDispatch();
-
+  const navigate=useNavigate();
   async function handleLogin(e) {
     e.preventDefault(); // prevent form default reload
     try {
       const res = await axios.post(`https://freshmart-backend-l2vk.onrender.com/user/signup`, {name,emailId, password,number}, { withCredentials: true });
       dispatch(addUser(res.data));
+      navigate("/")
     } catch (error) {
      
       swal("Signup Failed", "userExists" || "Something went wrong", "error");
