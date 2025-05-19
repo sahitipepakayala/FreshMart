@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 const cors = require('cors');
 app.use(cors({
-    origin: process.env.FRONTEND_URL, // React frontend
+    origin: "https://freshmart-frontend-mxo4.onrender.com", // React frontend
     credentials: true
   }));
   
