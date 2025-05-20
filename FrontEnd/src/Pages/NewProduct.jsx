@@ -11,7 +11,7 @@ function NewProduct() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("https://freshmart-backend-l2vk.onrender.com/product/newProduct", formData, {
+        const response = await axios.post("https://freshmart-backend-l2vk.onrender.com/product/newProduct", {name,price,image}, {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data"
