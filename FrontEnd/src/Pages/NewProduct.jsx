@@ -13,9 +13,7 @@ function NewProduct() {
       try {
         const response = await axios.post("https://freshmart-backend-l2vk.onrender.com/product/newProduct", {name,price,image}, {
           withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
+
         });
         
         console.log("Server response:", response.data);
