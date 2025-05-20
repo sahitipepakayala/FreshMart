@@ -8,25 +8,37 @@ function NewProduct() {
     const [price,setPrice]=useState('20');
     const [image,setImage]=useState('');
     const navigate=useNavigate();
-    const handleSubmit=async(e)=>{
-        e.preventDefault();
-        try{
-            await axios.post(`https://freshmart-backend-l2vk.onrender.com/product/newProduct`,{name,price,image},{withCredentials:true})
-            .then(()=>{
-                swal("Success", "Product updated successfully!", "success");
-                navigate("/manage")})
-            .catch(error=>{
-                console.log(error);
-                alert("error")
-            })
-        
-        
-    }
-    catch(error)
-    {
-        console.log("error in new product")
-    }
-}
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+          const response = await axios.post(
+              `https://freshmart-backend-l2vk.onrender.com/product/newProduct`,
+              { name, price, image },
+              { withCredentials: true }
+          );
+  
+          console.log("Server response:", response.data);
+          swal("Success", "Product updated successfully!", "success");
+          navigate("/manage");
+      } catch (error) {
+          console.error("Caught in try-catch error:", error);
+  
+          if (error.response) {
+              // Server responded with status other than 2xx
+              console.error("Backend error message:", error.response.data);
+              console.error("Status code:", error.response.status);
+              alert(`Server error: ${error.response.data}`);
+          } else if (error.request) {
+              // No response received
+              console.error("No response received:", error.request);
+              alert("No response from server.");
+          } else {
+              // Something else
+              alert("Request error: " + error.message);
+          }
+      }
+  };
+  
   return (
     <div> 
         <form className="flex flex-col  justify-center items-center gap-3 bg-green-300 p-5" onSubmit={handleSubmit}>  
