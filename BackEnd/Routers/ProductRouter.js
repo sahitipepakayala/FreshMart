@@ -4,7 +4,7 @@ const {Product} =require("../models/products");
 const express=require("express");
 const productRouter=express.Router();
 
-productRouter.post("/newProduct",adminAuth,async(req,res)=>{
+productRouter.post("/newProduct",async(req,res)=>{
     const {name,price,image}=req.body;
     try{
         const product1=new Product({name,price,image});
